@@ -19,9 +19,8 @@ import star from "./assets/stickers/star.webp";
 import star2 from "./assets/stickers/star2.webp";
 import wingL from "./assets/stickers/wing-l.webp";
 import wingR from "./assets/stickers/wing-r.webp";
+import portrait from "./assets/IMG_5923.png";
 
-const portrait =
-  "https://images.unsplash.com/photo-1634509319985-32e4750dc78c?auto=format&fit=crop&w=1100&q=85";
 const city =
   "https://images.unsplash.com/photo-1599060052009-24d6d0b0161c?auto=format&fit=crop&w=1800&q=85";
 
