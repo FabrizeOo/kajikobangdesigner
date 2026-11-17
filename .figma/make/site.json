@@ -1,0 +1,15 @@
+{
+  "title": "Kajiko Bang — Portafolio de Diseño",
+  "language": "es",
+  "description": "Explora el portafolio de Kajiko Bang, descubre diseños urbanos para música, gaming y streaming, y solicita proyectos gráficos personalizados.",
+  "icons": {
+    "icon": "/favicon.png"
+  },
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
