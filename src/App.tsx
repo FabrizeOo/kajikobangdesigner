@@ -15,7 +15,6 @@ import fleur from "./assets/stickers/fleur.webp";
 import heartBleed from "./assets/stickers/heart-bleed.webp";
 import heartSpike from "./assets/stickers/heart-spike.webp";
 import padlock from "./assets/stickers/padlock.webp";
-import star from "./assets/stickers/star.webp";
 import star2 from "./assets/stickers/star2.webp";
 import wingL from "./assets/stickers/wing-l.webp";
 import wingR from "./assets/stickers/wing-r.webp";
@@ -103,7 +102,7 @@ function SectionTitle({
   children,
   wings,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   children: React.ReactNode;
   wings?: boolean;
 }) {
@@ -115,10 +114,12 @@ function SectionTitle({
         <span className="drip-text">{children}</span>
         {wings && <img className="wing wing--r" src={wingR} alt="" aria-hidden="true" />}
       </h2>
-      <p className="script-note">
-        {eyebrow}
-        <span>×</span>
-      </p>
+      {eyebrow && (
+        <p className="script-note">
+          {eyebrow}
+          <span>×</span>
+        </p>
+      )}
     </div>
   );
 }
@@ -358,9 +359,7 @@ function App() {
 
         <section id="trabajos" className="work-section">
           <div className="section work-head">
-            <SectionTitle eyebrow="Todo lo que hice, sin filtros." wings>
-              TRABAJOS
-            </SectionTitle>
+            <SectionTitle wings>TRABAJOS</SectionTitle>
             <div className="category-tabs reveal" role="tablist" aria-label="Categorías">
               {categories.map((c) => (
                 <button
@@ -400,7 +399,7 @@ function App() {
 
         <section id="servicios" className="section services-section">
           <Sticker src={dagger} className="st-dagger" drift="spin" />
-          <SectionTitle eyebrow="Lo que puedo hacer por tu marca.">SERVICIOS</SectionTitle>
+          <SectionTitle>SERVICIOS</SectionTitle>
           <div className="services-grid">
             {services.map((s, i) => {
               const cover = categories.find((c) => c.id === s.category)!.items[i === 3 ? 2 : 1];
@@ -446,7 +445,7 @@ function App() {
           </div>
           <div className="about-copy reveal">
             <Sticker src={crossRed} className="st-about-cross" drift="up" />
-            <p className="section-index">DESDE PERÚ / PARA EL MUNDO</p>
+            <p className="section-index">PERÚ</p>
             <h2>
               <span className="drip-text">
                 SOBRE
@@ -455,15 +454,11 @@ function App() {
               </span>
             </h2>
             <p className="about-lead">
-              Soy Kajiko Bang, diseñador gráfico desde Perú. Creo banners, overlays y artes con
-              identidad urbana para streamers, músicos y marcas que quieren destacar.
+              Soy Kajiko Bang, diseñador gráfico de Perú. Creo banners, overlays y piezas visuales
+              para streamers, músicos y marcas.
             </p>
             <p className="about-body">
-              Me obsesiona convertir ideas crudas en imágenes que se quedan en la cabeza. Disponible
-              para trabajo de tiempo completo y proyectos freelance.
-            </p>
-            <p className="script-note">
-              Disponible full-time y freelance.<span>✝</span>
+              Disponible para proyectos freelance y trabajo a tiempo completo.
             </p>
             <div className="tools">
               {["PHOTOSHOP", "ILLUSTRATOR", "FIGMA", "AFTER EFFECTS"].map((t, i) => (
@@ -489,16 +484,16 @@ function App() {
         </section>
 
         <section className="section process-section">
-          <SectionTitle eyebrow="Directo. Claro. Sin vueltas.">CÓMO TRABAJO</SectionTitle>
+          <SectionTitle>CÓMO TRABAJO</SectionTitle>
           <div className="barbwire reveal" aria-hidden="true">
             <img src={barbwire} alt="" loading="lazy" />
           </div>
           <div className="process-line">
             {[
               ["BRIEF", "Hablamos de tu idea, objetivo y referencias.", padlock],
-              ["BOCETO", "Defino concepto, energía y composición.", crossRuby],
-              ["DISEÑO", "Construyo cada detalle con intención.", heartSpike],
-              ["ENTREGA", "Recibes tus artes listas para romperla.", star2],
+              ["BOCETO", "Propuesta visual y composición.", crossRuby],
+              ["DISEÑO", "Desarrollo de la pieza final.", heartSpike],
+              ["ENTREGA", "Archivos finales listos para publicar.", star2],
             ].map(([title, desc, icon], i) => (
               <article
                 className="reveal"
@@ -511,40 +506,6 @@ function App() {
                 <h3>{title}</h3>
                 <p>{desc}</p>
               </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="testimonials section">
-          <Sticker src={star} className="st-star st-star--a" float />
-          <Sticker src={star2} className="st-star st-star--b" float />
-          <p className="section-index">VOCES REALES / RESULTADOS REALES</p>
-          <div className="testimonial-grid">
-            {[
-              [
-                "“Entendió la vibra a la primera. El overlay quedó criminal.”",
-                "BLESSEDFNK",
-                "STREAMER",
-              ],
-              ["“Mi lanzamiento por fin se vio como siempre lo imaginé.”", "NERO XV", "ARTISTA"],
-              [
-                "“Subió el CTR y la identidad del canal se siente mucho más pro.”",
-                "MATEO PLAY",
-                "CREADOR",
-              ],
-            ].map(([quote, name, role], i) => (
-              <blockquote
-                className="reveal"
-                key={name}
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <span>0{i + 1} / TESTIMONIO</span>
-                <p>{quote}</p>
-                <footer>
-                  <b>{name}</b>
-                  <small>{role}</small>
-                </footer>
-              </blockquote>
             ))}
           </div>
         </section>
@@ -619,7 +580,7 @@ function App() {
                   name="message"
                   required
                   rows={5}
-                  placeholder="SIN MIEDO. SUELTA TODO..."
+                  placeholder="DETALLES DEL PROYECTO..."
                 />
               </label>
               <div className="form-actions">
@@ -649,7 +610,6 @@ function App() {
             <br />
             TODOS LOS DERECHOS RESERVADOS.
           </p>
-          <p>DISEÑADO CON ACTITUD EN PERÚ.</p>
         </div>
         <nav aria-label="Redes sociales">
           {socials.map(({ title, href, icon }) => (

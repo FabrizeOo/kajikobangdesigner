@@ -254,12 +254,8 @@ export default function VideoScrollHero() {
 
         <img ref={heartRef} className="vs-heart" src={heart} alt="" aria-hidden="true" />
         <div className="vs-outro" ref={outroRef}>
-          <p className="script-note">
-            Sin filtros. Con actitud.<span>✝</span>
-          </p>
           <p className="vs-outro-copy">
-            Banners, overlays, thumbnails y flyers con identidad urbana. Photoshop, Illustrator &
-            Figma.
+            Banners, overlays, thumbnails y flyers. Photoshop, Illustrator & Figma.
           </p>
           <div className="hero-actions">
             <a className="button button--primary" href="#trabajos">
@@ -273,7 +269,7 @@ export default function VideoScrollHero() {
 
         <div className="vs-cue" ref={cueRef}>
           <img src={star} alt="" aria-hidden="true" />
-          <span>DESLIZA PARA DESPERTARLO</span>
+          <span>SCROLL</span>
           <i />
         </div>
         <div className="vs-meter" aria-hidden="true">
